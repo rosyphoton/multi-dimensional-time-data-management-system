@@ -1,0 +1,50 @@
+1.系统配置
+  a.系统环境：Ubuntu14.04 + Python2.7 + InfluxDB v1.2.2
+  b.安装python：Ubuntu自带
+  c.安装InfluxDB v1.2.2：
+    wget https://dl.influxdata.com/influxdb/releases/influxdb_1.2.2_amd64.deb
+    sudo dpkg -i influxdb_1.2.2_amd64.deb
+  d.安装InfluxDB-Python：
+    $ sudo apt-get install python-influxdb
+以上安装完成后可以使用Python执行InfluxDB命令操作
+
+  e.安装Flask：使用虚拟环境安装Flask
+      安装virtualenv用来创建虚拟环境：$ sudo apt-get install python-virtualenv
+      创建项目文件夹：
+        $ mkdir myproject
+	$ cd myproject
+      在新文件夹myproject中创建虚拟环境：
+        $ virtualenv venv
+      激活虚拟环境：
+        $ . venv/bin/activate
+      在虚拟环境中安装Flask：
+	(venv) $ pip install flask
+以上安装完成后可以运行本系统。其实也可以不安装虚拟环境直接使用全局安装：
+	$ sudo pip install Flask
+但是虚拟环境可以为每个项目提供独立的环境，项目间互不干扰。
+
+2.程序结构
+  a.项目文件夹主要包含了static文件夹、templates文件夹、uploadfiles文件夹、项目文件flaskr.py和接口函数文件interface.py。
+  b.static和templates文件夹中分别包含了系统网页的静态文件和模板文件。uploadfiles文件夹用于暂存上传存储的文件。
+  c.flaskr.py文件是项目的主文件。程序中定义了视图函数和普通函数。
+  d.视图函数按功能分为：实现类sql语句查询功能的视图函数（query_input()）
+		       实现文件上传功能的视图函数（upload_file()、upload_remark(filename)、uploaded_file(filename, remark)）
+		       实现数据逐步查询功能的视图函数（query_data()、query_result()、query_items()、last_query()）
+		       实现数据删除功能的视图函数（measurement_drop()、drop_deal()、drop_file()）
+  e.普通函数按功能分为：存储函数1（store_func1(...)）、存储函数2（store_func2(...)）、存储函数3（store_func(...)）、文件内容格式转化函数（fileDeal(...)）、文件读取函数（eachFile(...)）
+  d.interface.py函数中包含了所有的接口函数。
+
+3.函数接口
+  a.interface.py中的函数包含了接口函数以及辅助函数。
+  b.interface.py中的接口函数按功能可以分为：获取数据库中存储的所有文件名的函数（getalldatafilename(...)）、根据文件名获取所有数据的函数（getdatabyname(...)）、将返回的经过滤波处理的数据存入数据库的函数（writedata(...)）、根据文件名获取文件属性的函数（getattrbyfilename(...)）
+  c.interface.py中的辅助函数包括三种类型数据的存储函数：store_func1(...)、store_func2(...)、store_func3(...)
+
+
+
+
+
+
+
+
+
+

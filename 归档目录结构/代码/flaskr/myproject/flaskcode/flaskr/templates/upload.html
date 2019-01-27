@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Upload new File{% endblock %}
+
+{% block sidebar %}Upload new File{% endblock %}
+
+{% block content%}
+<h1>Upload new File</h1>
+<div align="left" id="container_buttons" >
+	<form action="" method="POST" enctype=multipart/form-data>
+		<h3><input type="file" name="file"></h3>
+		    <h4>
+			    <input name="ps" type="radio" value="psa" />添加备注
+			   	<input name="ps" type="radio" value="psb" />不添加备注<br><br>
+		   	</h4>
+		<button type="submit" value="" class="a_demo_one" >Upload</button>
+	</form>
+</div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Remark{% endblock %}
+
+{% block sidebar %}Remark{% endblock %}
+
+{% block content %}
+
+<div class="caption">
+	<h1>The needed remarks</h1>
+	{{ wtf.quick_form(form) }}
+</div>
+
+{% endblock %}

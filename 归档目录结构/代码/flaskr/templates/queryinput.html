@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Query Input{% endblock %}
+
+{% block sidebar %}Query Input{% endblock %}
+
+{% block content %}
+
+<div class="caption">
+	<h1>if you want to input the query directly</h1>
+	{{ wtf.quick_form(form) }}
+</div>
+
+{% endblock %}

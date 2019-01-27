@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Date Need{% endblock %}
+
+{% block sidebar %}Date Need{% endblock %}
+
+{% block content %}
+
+<div class="caption">
+	<h1>This kind of data need input date by hand</h1>
+	{{ wtf.quick_form(form) }}
+</div>
+
+{% endblock %}

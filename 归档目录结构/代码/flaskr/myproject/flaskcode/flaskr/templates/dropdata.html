@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}Drop Data{% endblock %}
+
+{% block sidebar %}Drop Data{% endblock %}
+
+{% block content %}
+	<div class="caption">
+		{% if list_all %}
+			<h1>Choose measurements that you want to Drop</h1>
+			<div align="left" id="container_buttons" >
+				<form action="/dropdeal" method="POST">
+					{% for item in list_all %}
+						<h3><label>{{ item[0] }}</label></h3>
+						{% for temp in item[1:] %}
+						<h3>
+							<input name="selected_meas" type="checkbox" value={{ temp }} />{{ temp }}
+						</h3>
+						{% endfor %}
+						<br>
+						<button name="database" type="submit" value={{ item[0] }} class="a_demo_one" >确认</button>
+					{% endfor %}
+				</form>
+			</div>
+		{% else%}
+			{% if result %}
+				<h1>Choose Files that you want to Drop</h1>
+				<div align="left" id="container_buttons" >
+					<form action="/dropfile" method="POST">
+				    	{% for item in result %}
+				    		<h3><input name="filename" type="radio" value={{ item[0] }}+{{ item[1] }} />{{ item[0] }} <br> ({{ item[2] }})</h3><br>
+				    	{% endfor %}
+				    		<br>
+				    		<button name="" type="submit" value="" class="a_demo_one" >确认</button>
+				    </form>
+				</div>
+		    {% else %}
+		    	<h1>Make your Choice</h1>
+        		<div align="center" id="container_buttons" >
+        			<p>
+				    	<form action="/dropmeasurement" method="POST">
+				    		<button name="choice" value="dm" class="a_demo_one" >批量删除数据表</button><br><br><br><br>
+				    		<button name="choice" value="ds" class="a_demo_one" >条件删除数据流</button>
+				    	</form>
+			    	</p>
+			    </div>
+		    {% endif %}
+	    {% endif %}
+	</div>
+{% endblock %}

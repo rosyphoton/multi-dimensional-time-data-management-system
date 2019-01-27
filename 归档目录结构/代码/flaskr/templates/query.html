@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block title %}Query Data{% endblock %}
+
+{% block sidebar %}Query Data{% endblock %}
+
+{% block content %}
+	<div class="caption">
+		{% if measurement %}
+			<h1>Choose items that you want to query</h1>
+			<div align="left" id="container_buttons" >
+				<form action="/lastquery" method="POST">
+					<h2><label>Tags</label></h2>
+						{% for result_tags in result_tags_list %}
+						<h3>
+							<input name="selected_tags" type="checkbox" value={{ result_tags }} />{{ result_tags }}
+						</h3>
+						{% endfor %}
+						
+					<!-- </form> -->
+
+					<h2><label>Fields</label></h2>
+					<!-- <form action="/lastquery" method="POST"> -->
+						{% for result_fields in result_fields_list %}
+						<h3>
+							<input name="selected_fields" type="checkbox" value={{ result_fields }} />{{ result_fields }}
+						</h3>
+						{% endfor %}
+					<br>
+					<button name="database_measurement" type="submit" value={{ name }}+{{ measurement }} class="a_demo_one" >确认</button>
+				</form>
+			</div>
+
+		{% else %}
+			{% if name %}
+				<h1>Choose your measurement</h1>
+				{% if result %}
+				<div align="center" id="container_buttons" >
+			    	<p>
+					    <form action="/queryitems" method="POST">
+					    	{% for item in result %}
+					    		<button name="datament" type="submit" value={{ name }}+{{ item['name'] }} class="a_demo_one">{{ item['name'] }}</button><br><br><br>
+					    	{% endfor %}
+					    </form>
+					</p>
+				</div>
+		    	{% else %}
+		    		None
+		    	{% endif %}
+
+			{% else %}
+				<h1>Choose your database</h1>
+			    {% if result %}
+			    <div align="center" id="container_buttons" >
+			    	<p>
+					    <form action="/queryresult" method="POST">
+					    	{% for item in result[1:] %}
+					    		<button name="database" type="submit" value={{ item['name'] }} class="a_demo_one" >{{ item['name'] }}</button><br><br><br>
+					    	{% endfor %}
+					    </form>
+				    </p>
+				</div>
+			    {% else %}
+			    	None
+			    {% endif %}
+
+		    {% endif %}
+
+		{% endif %}
+	</div>
+{% endblock %}

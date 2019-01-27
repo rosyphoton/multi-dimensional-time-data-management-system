@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Query Result{% endblock %}
+
+{% block sidebar %}Query Result{% endblock %}
+
+{% block content %}
+
+<div class="caption">
+	<h1>Last Result</h1>
+	{% for item in result %}
+		<h2>{{ item }}</h2>
+	{% endfor %}
+</div>
+
+{% endblock %}

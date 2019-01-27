@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="/static/img/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>{% block title %}{% endblock %}</title>
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+    <meta name="description" content="CSS buttons with pseudo-elements" />
+    <meta name="keywords" content="css, css3, pseudo, buttons, anchor, before, after, web design" /> 
+    <meta name="author" content="Sergio Camalich for Codrops" />
+    <link rel="shortcut icon" href="/static/img/favicon.ico"> 
+    <link rel="stylesheet" type="text/css" href="../static/css/demo1.css" />
+    <link rel="stylesheet" type="text/css" href="../static/css/style1.css" />
+
+    <!-- Bootstrap core CSS     -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Animation library for notifications   -->
+    <link href="/static/css/animate.min.css" rel="stylesheet"/>
+
+    <!--  Light Bootstrap Table core CSS    -->
+    <link href="/static/css/light-bootstrap-dashboard.css" rel="stylesheet"/>
+
+
+    <!--  CSS for Demo Purpose, don't include it in your project     -->
+    <link href="/static/css/demo.css" rel="stylesheet" />
+
+
+    <!--     Fonts and icons     -->
+    <link href="/static/css/font-awesome.min.css" rel="stylesheet"><!-- 
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'> -->
+    <link href="/static/css/pe-icon-7-stroke.css" rel="stylesheet" />
+
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="sidebar" data-color="purple" data-image="/static/img/sidebar-5.jpg">
+
+    <!--   you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple" -->
+
+
+        <div class="sidebar-wrapper">
+            <div class="logo">
+                <a href="/" class="simple-text">
+                    {% block sidebar %}{% endblock %}
+                </a>
+            </div>
+
+            <ul class="nav">
+                <li>
+                    <a href="/queryinput">
+                        <i class="pe-7s-graph"></i>
+                        <h6>直接查询</h6>
+                    </a>
+                </li>
+                <!-- <li>
+                    <a href="user.html">
+                        <i class="pe-7s-user"></i>
+                        <p>User Profile</p>
+                    </a>
+                </li> -->
+                <li>
+                    <a href="/uploadfile">
+                        <i class="pe-7s-note2"></i>
+                        <h6>文件上传</h6>
+                    </a>
+                </li>
+                <li>
+                    <a href="/querydata">
+                        <i class="pe-7s-science"></i>
+                        <h6>逐步查询</h6>
+                    </a>
+                </li>
+                <li>
+                    <a href="/dropmeasurement">
+                        <i class="pe-7s-news-paper"></i>
+                        <h6>数据表删除</h6>
+                    </a>
+                </li>
+                <!-- <li>
+                    <a href="maps.html">
+                        <i class="pe-7s-map-marker"></i>
+                        <p>Maps</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="notifications.html">
+                        <i class="pe-7s-bell"></i>
+                        <p>Notifications</p>
+                    </a>
+                </li> -->
+                <li class="active-pro">
+                    <a href="/">
+                        <i class="pe-7s-rocket"></i>
+                        <p>Back to Homepage</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="main-panel">
+        <nav class="navbar navbar-default navbar-fixed">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">信息对抗研究中心 多维时序数据管理系统</a>
+                </div>
+            </div>
+        </nav>
+
+
+        <div class="content">
+            {% block content%}{% endblock %}
+        </div>
+
+        <footer class="footer">
+            <div class="container-fluid">
+                <!-- ... -->
+            </div>
+        </footer>
+
+
+    </div>
+</div>
+
+
+</body>
+
+       <!--   Core JS Files   -->
+    <script src="/static/js/jquery-1.10.2.js" type="text/javascript"></script>
+    <script src="/static/js/bootstrap.min.js" type="text/javascript"></script>
+
+    <!--  Checkbox, Radio & Switch Plugins -->
+    <script src="/static/js/bootstrap-checkbox-radio-switch.js"></script>
+
+    <!--  Charts Plugin -->
+    <script src="/static/js/chartist.min.js"></script>
+
+    <!--  Notifications Plugin    -->
+    <script src="/static/js/bootstrap-notify.js"></script>
+
+    <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
+    <script src="/static/js/light-bootstrap-dashboard.js"></script>
+
+    <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
+    <script src="/static/js/demo.js"></script>
+
+
+</html>
